@@ -1,11 +1,11 @@
-import sandboxEvent from "../../model/sandbox-event";
+import SandboxEvent from "../../model/sandbox-event";
 import Windows from "./windows/windows";
 
 export default class Chrome {
 
     public windows = new Windows();
 
-    onEventFromSandbox(sandboxEvent: sandboxEvent): void {
+    onEventFromSandbox(sandboxEvent: SandboxEvent): void {
         this.windows.onEventFromSandbox(sandboxEvent);
     }
 }
