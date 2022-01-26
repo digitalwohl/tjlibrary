@@ -13,7 +13,7 @@ export default class Windows extends SandboxEventDispatcher{
         ON_REMOVED_WINDOWS: 'onRemovedWindows'
     }
 
-    private pendingRequests: SandboxEventPromise[];
+    private pendingRequests: SandboxEventPromise[] = [];
 
     public async getAll(): Promise<chrome.windows.Window[]> {
         const sandboxEvent = new SandboxEvent(this.DOMAIN, this.ACTIONS.GET_ALL_WINDOWS);
@@ -32,22 +32,22 @@ export default class Windows extends SandboxEventDispatcher{
     // }
 
 
-    private onBoundsChangedCallbacks: Function[];
+    private onBoundsChangedCallbacks: Function[] = [];
     public onBoundsChanged(callback: Function): void {
         this.onBoundsChangedCallbacks.push(callback);
     }
 
-    private onCreatedCallbacks: Function[];
+    private onCreatedCallbacks: Function[] = [];
     public onCreated(callback: Function): void {
         this.onCreatedCallbacks.push(callback);
     }
 
-    private onFocusChangedCallbacks: Function[];
+    private onFocusChangedCallbacks: Function[] = [];
     public onFocusChanged(callback: Function): void {
         this.onFocusChangedCallbacks.push(callback);
     }
 
-    private onRemovedCallbacks: Function[];
+    private onRemovedCallbacks: Function[] = [];
     public onRemoved(callback: Function): void {
         this.onRemovedCallbacks.push(callback);
     }
