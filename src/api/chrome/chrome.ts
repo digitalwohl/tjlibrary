@@ -5,11 +5,7 @@ export default class Chrome {
 
     public windows = new Windows();
 
-    onSandboxEvent(sandboxEvent: sandboxEvent): void {
-        this.windows.onSandboxEvent(sandboxEvent);
-    }
-
-    onIframeEvent(eventName: string): Promise<any> {
-        return this.windows.onIframeEvent(eventName);
+    onEventFromSandbox(sandboxEvent: sandboxEvent): void {
+        this.windows.onEventFromSandbox(sandboxEvent);
     }
 }

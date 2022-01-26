@@ -1,8 +1,8 @@
-import { sendSandboxEvent } from "../../..";
 import SandboxEvent from "../../../model/sandbox-event";
+import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 import SandboxEventPromise from "../../../model/sandbox-event-promise";
 
-export default class Windows {
+export default class Windows extends SandboxEventDispatcher{
 
     private DOMAIN = 'extension';
     private ACTIONS = {
@@ -19,7 +19,7 @@ export default class Windows {
         const sandboxEvent = new SandboxEvent(this.DOMAIN, this.ACTIONS.GET_ALL_WINDOWS);
         const sandboxEventPromise = new SandboxEventPromise(sandboxEvent);
         this.pendingRequests.push(sandboxEventPromise);
-        sendSandboxEvent(sandboxEvent);
+        this.sendSandboxEvent(sandboxEvent);
         return sandboxEventPromise.createPromise();
     }
 
@@ -30,52 +30,52 @@ export default class Windows {
     //     return sandboxEventPromise.createPromise();
     // }
 
-    public onBoundsChanged(window: chrome.windows.Window, callback: Function): void {
-        callback(window);
+
+    private onBoundsChangedCallbacks: Function[];
+    public onBoundsChanged(callback: Function): void {
+        this.onBoundsChangedCallbacks.push(callback);
     }
 
-    public onCreated(window: chrome.windows.Window, callback: Function): void {
-        callback(window);
+    private onCreatedCallbacks: Function[];
+    public onCreated(callback: Function): void {
+        this.onCreatedCallbacks.push(callback);
     }
 
-    public onFocusChanged(windowId: number, callback: Function): void {
-        callback(windowId);
+    private onFocusChangedCallbacks: Function[];
+    public onFocusChanged(callback: Function): void {
+        this.onFocusChangedCallbacks.push(callback);
     }
 
-    public onRemoved(windowId: number, callback: Function): void {
-        callback(windowId);
+    private onRemovedCallbacks: Function[];
+    public onRemoved(callback: Function): void {
+        this.onRemovedCallbacks.push(callback);
     }
 
-    public registerCallback(callback: Function) {
-        callback();
-    }
-
-    public onSandboxEvent(sandboxEvent: SandboxEvent): void {
+    public onEventFromSandbox(sandboxEvent: SandboxEvent): void {
         if (sandboxEvent.domain === this.DOMAIN) {
             switch (sandboxEvent.action) {
                 case this.ACTIONS.GET_ALL_WINDOWS:
-                    const sandboxEventPromise = this.pendingRequests.find(request => request.sandboxEvent.id === sandboxEvent.id);
-                    if(sandboxEventPromise) {
-                        sandboxEventPromise.resolvePromise(sandboxEvent.data);
-                    } else {
-                        sandboxEventPromise.rejectPromise('Cannot resolve event.');
+                    const foundPromise = this.pendingRequests.find(request => request.sandboxEvent.id === sandboxEvent.id);
+                    if (foundPromise) {
+                        foundPromise.resolvePromise(sandboxEvent);
                     }
+                    break;
+                case this.ACTIONS.ON_BOUNDS_CHANGED_WINDOWS:
+                    this.onBoundsChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
+                    break;
+                case this.ACTIONS.ON_CREATED_WINDOWS:
+                    this.onCreatedCallbacks.forEach(callback => callback(sandboxEvent.data));
+                    break;
+                case this.ACTIONS.ON_FOCUS_CHANGED_WINDOWS:
+                    this.onFocusChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
+                    break;
+                case this.ACTIONS.ON_BOUNDS_CHANGED_WINDOWS:
+                    this.onRemovedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;
                 default:
                     break;
             }
         }
     }
-
-    public onIframeEvent(eventName: string): Promise<any> {
-        let responsePromise = null;
-        switch (eventName) {
-            case this.ACTIONS.GET_ALL_WINDOWS:
-                responsePromise = this.getAll();
-                break;
-            default:
-                break;
-        }
-        return responsePromise;
-    }
+    
 }

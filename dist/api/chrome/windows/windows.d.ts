@@ -1,15 +1,18 @@
 /// <reference types="chrome" />
 import SandboxEvent from "../../../model/sandbox-event";
-export default class Windows {
+import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
+export default class Windows extends SandboxEventDispatcher {
     private DOMAIN;
     private ACTIONS;
     private pendingRequests;
     getAll(): Promise<chrome.windows.Window[]>;
-    onBoundsChanged(window: chrome.windows.Window, callback: Function): void;
-    onCreated(window: chrome.windows.Window, callback: Function): void;
-    onFocusChanged(windowId: number, callback: Function): void;
-    onRemoved(windowId: number, callback: Function): void;
-    registerCallback(callback: Function): void;
-    onSandboxEvent(sandboxEvent: SandboxEvent): void;
-    onIframeEvent(eventName: string): Promise<any>;
+    private onBoundsChangedCallbacks;
+    onBoundsChanged(callback: Function): void;
+    private onCreatedCallbacks;
+    onCreated(callback: Function): void;
+    private onFocusChangedCallbacks;
+    onFocusChanged(callback: Function): void;
+    private onRemovedCallbacks;
+    onRemoved(callback: Function): void;
+    onEventFromSandbox(sandboxEvent: SandboxEvent): void;
 }

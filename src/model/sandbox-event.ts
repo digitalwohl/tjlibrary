@@ -7,6 +7,8 @@ import { customAlphabet } from 'nanoid';
  * @class SandboxEvent
  */
 export default class SandboxEvent {
+    STRING_SEPARATOR = '#';
+
     id: string;
     domain: string;
     action: string;
@@ -36,5 +38,9 @@ export default class SandboxEvent {
     private generateId() {
         const nanoid = customAlphabet('1234567890', 16);
         return nanoid();
+    }
+
+    public toString():string {
+        return `${this.id}${this.STRING_SEPARATOR}${this.domain}${this.STRING_SEPARATOR}${this.action}`;
     }
 }
