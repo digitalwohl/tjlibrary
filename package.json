@@ -1,0 +1,45 @@
+{
+  "name": "tj_comm",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/tj-comm.js",
+  "browser": "./dist/tj-comm.umd.js",
+  "umd:main": "./dist/tj-comm.umd.js",
+  "jsnext:main": "./dist/tj-comm.modern.js",
+  "module": "./dist/tj-comm.module.js",
+  "source": "./src/index.ts",
+  "syntax": {
+    "esmodules": "./dist/tj-comm.modern.js"
+  },
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "mangle": {
+    "regex": "^_"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "exports": {
+    ".": {
+      "browser": "./dist/tj-comm.module.js",
+      "umd": "./dist/tj-comm.umd.js",
+      "import": "./dist/tj-comm.module.js",
+      "require": "./dist/tj-comm.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:watch": "microbundle watch",
+    "build": "microbundle"
+  },
+  "author": "Dinu Sebastian Liviu",
+  "license": "ISC",
+  "devDependencies": {
+    "microbundle": "^0.14.2",
+    "@types/chrome": "0.0.177"
+  },
+  "dependencies": {
+    "nanoid": "^3.2.0"
+  }
+}
