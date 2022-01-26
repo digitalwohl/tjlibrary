@@ -56,8 +56,10 @@ export default class Windows extends SandboxEventDispatcher{
             switch (sandboxEvent.action) {
                 case this.ACTIONS.GET_ALL_WINDOWS:
                     const foundPromise = this.pendingRequests.find(request => request.sandboxEvent.id === sandboxEvent.id);
+                    const fountPromiseIndex = this.pendingRequests.findIndex(request => request.sandboxEvent.id === sandboxEvent.id);
                     if (foundPromise) {
-                        foundPromise.resolvePromise(sandboxEvent);
+                        foundPromise.resolvePromise(sandboxEvent.data);
+                        this.pendingRequests.splice(fountPromiseIndex, 1);
                     }
                     break;
                 case this.ACTIONS.ON_BOUNDS_CHANGED_WINDOWS:
