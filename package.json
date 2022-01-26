@@ -31,15 +31,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:watch": "microbundle watch",
-    "build": "microbundle"
+    "build": "microbundle --external none"
   },
   "author": "Dinu Sebastian Liviu",
   "license": "ISC",
   "devDependencies": {
-    "microbundle": "^0.14.2",
-    "@types/chrome": "0.0.177"
+    "microbundle": "^0.14.2"
   },
   "dependencies": {
-    "nanoid": "^3.2.0"
+    "nanoid": "^3.2.0",
+    "@types/chrome": "0.0.177"
   }
 }

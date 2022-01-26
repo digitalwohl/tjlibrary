@@ -1,5 +1,4 @@
 import Api from "./api/api";
-import Windows from "./api/chrome/windows/windows";
 import SandboxEvent from "./model/sandbox-event";
 
 const SANDBOX_EVENT_PATH = 'tabjail.event';
