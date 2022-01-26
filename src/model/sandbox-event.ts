@@ -7,7 +7,7 @@ import { customAlphabet } from 'nanoid';
  * @class SandboxEvent
  */
 export default class SandboxEvent {
-    STRING_SEPARATOR = '#';
+    // STRING_SEPARATOR = '#';
 
     id: string;
     domain: string;
@@ -40,7 +40,7 @@ export default class SandboxEvent {
         return nanoid();
     }
 
-    public toString():string {
-        return `${this.id}${this.STRING_SEPARATOR}${this.domain}${this.STRING_SEPARATOR}${this.action}`;
-    }
+    // public toString():string {
+    //     return `${this.id}${this.STRING_SEPARATOR}${this.domain}${this.STRING_SEPARATOR}${this.action}`;
+    // }
 }

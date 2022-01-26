@@ -15,13 +15,12 @@ export default class Windows extends SandboxEventDispatcher{
 
     private pendingRequests: SandboxEventPromise[] = [];
 
-    public async getAll(): Promise<chrome.windows.Window[]> {
+    public getAll(): Promise<chrome.windows.Window[]> {
         const sandboxEvent = new SandboxEvent(this.DOMAIN, this.ACTIONS.GET_ALL_WINDOWS);
         const sandboxEventPromise = new SandboxEventPromise(sandboxEvent);
         this.pendingRequests.push(sandboxEventPromise);
         this.sendSandboxEvent(sandboxEvent);
-        const promise = sandboxEventPromise.createPromise();
-        return await promise;
+        return sandboxEventPromise.createPromise();
     }
 
     // public async update(windowId: string, updateInfo: chrome.windows.UpdateInfo): Promise<chrome.windows.Window> {
