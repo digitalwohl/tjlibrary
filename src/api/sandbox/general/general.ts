@@ -18,6 +18,7 @@ export default class General extends SandboxEventDispatcher {
         const sandboxEventPromise = new SandboxEventPromise(sandboxEvent);
         this.pendingRequests.push(sandboxEventPromise);
         this.sendSandboxEvent(sandboxEvent);
+        this.registerSandboxEventsListener();
         return sandboxEventPromise.createPromise();
     }
 
@@ -30,7 +31,6 @@ export default class General extends SandboxEventDispatcher {
                     if (foundPromise) {
                         foundPromise.resolvePromise(true);
                         this.pendingRequests.splice(fountPromiseIndex, 1);
-                        this.registerSandboxEventsListener();
                     }
                     break;
                 default:
