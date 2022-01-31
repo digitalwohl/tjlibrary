@@ -33,21 +33,25 @@ export default class Windows extends SandboxEventDispatcher{
 
     private onBoundsChangedCallbacks: Function[] = [];
     public onBoundsChanged(callback: Function): void {
+        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_BOUNDS_CHANGED_WINDOWS);
         this.onBoundsChangedCallbacks.push(callback);
     }
 
     private onCreatedCallbacks: Function[] = [];
     public onCreated(callback: Function): void {
+        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_CREATED_WINDOWS);
         this.onCreatedCallbacks.push(callback);
     }
 
     private onFocusChangedCallbacks: Function[] = [];
     public onFocusChanged(callback: Function): void {
+        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_FOCUS_CHANGED_WINDOWS);
         this.onFocusChangedCallbacks.push(callback);
     }
 
     private onRemovedCallbacks: Function[] = [];
     public onRemoved(callback: Function): void {
+        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_REMOVED_WINDOWS);
         this.onRemovedCallbacks.push(callback);
     }
 
