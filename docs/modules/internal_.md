@@ -6,15 +6,15 @@
 
 ### Classes
 
-- [default](../classes/internal_.default.md)
-- [default](../classes/internal_.default-1.md)
-- [default](../classes/internal_.default-2.md)
-- [default](../classes/internal_.default-3.md)
-- [default](../classes/internal_.default-4.md)
-- [default](../classes/internal_.default-5.md)
-- [default](../classes/internal_.default-6.md)
-- [default](../classes/internal_.default-7.md)
-- [default](../classes/internal_.default-8.md)
+- [Api](../classes/internal_.Api.md)
+- [Chrome](../classes/internal_.Chrome.md)
+- [General](../classes/internal_.General.md)
+- [Sandbox](../classes/internal_.Sandbox.md)
+- [SandboxEvent](../classes/internal_.SandboxEvent.md)
+- [SandboxEventDispatcher](../classes/internal_.SandboxEventDispatcher.md)
+- [SandboxEventPromise](../classes/internal_.SandboxEventPromise.md)
+- [Tabs](../classes/internal_.Tabs.md)
+- [Windows](../classes/internal_.Windows.md)
 
 ### Interfaces
 

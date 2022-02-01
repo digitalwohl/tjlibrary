@@ -16,8 +16,8 @@
 
 ### TJ
 
-• **TJ**: typeof [`default`](classes/internal_.default.md) = `Api`
+• **TJ**: [`Api`](classes/internal_.Api.md) = `Api`
 
 #### Defined in
 
-[src/index.ts:3](https://github.com/digitalwohl/tjlibrary/blob/bcb5078/src/index.ts#L3)
+[src/index.ts:3](https://github.com/digitalwohl/tjlibrary/blob/ea250d0/src/index.ts#L3)
