@@ -38,11 +38,11 @@ export default class Tabs extends SandboxEventDispatcher {
         this.onActivatedCallbacks.push(callback);
     }
 
-    private onActiveChangedCallbacks: Function[] = [];
-    public onActiveChanged(callback: Function): void {
-        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_ACTIVE_CHANGED_TABS);
-        this.onActiveChangedCallbacks.push(callback);
-    }
+    // private onActiveChangedCallbacks: Function[] = [];
+    // public onActiveChanged(callback: Function): void {
+    //     this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_ACTIVE_CHANGED_TABS);
+    //     this.onActiveChangedCallbacks.push(callback);
+    // }
 
     private onAttachedCallbacks: Function[] = [];
     public onAttached(callback: Function): void {
@@ -62,11 +62,11 @@ export default class Tabs extends SandboxEventDispatcher {
         this.onDetachedCallbacks.push(callback);
     }
 
-    private onHighlightChangedCallbacks: Function[] = [];
-    public onHighlightChanged(callback: Function): void {
-        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_HIGHLIGHT_CHANGED_TABS);
-        this.onHighlightChangedCallbacks.push(callback);
-    }
+    // private onHighlightChangedCallbacks: Function[] = [];
+    // public onHighlightChanged(callback: Function): void {
+    //     this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_HIGHLIGHT_CHANGED_TABS);
+    //     this.onHighlightChangedCallbacks.push(callback);
+    // }
 
     private onHighlightedCallbacks: Function[] = [];
     public onHighlighted(callback: Function): void {
@@ -92,11 +92,11 @@ export default class Tabs extends SandboxEventDispatcher {
         this.onReplacedCallbacks.push(callback);
     }
 
-    private onSelectionChangedCallbacks: Function[] = [];
-    public onSelectionChanged(callback: Function): void {
-        this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_SELECTION_CHANGED_TABS);
-        this.onSelectionChangedCallbacks.push(callback);
-    }
+    // private onSelectionChangedCallbacks: Function[] = [];
+    // public onSelectionChanged(callback: Function): void {
+    //     this.registerSubscription(this.DOMAIN, this.ACTIONS.ON_SELECTION_CHANGED_TABS);
+    //     this.onSelectionChangedCallbacks.push(callback);
+    // }
 
     private onUpdatedCallbacks: Function[] = [];
     public onUpdated(callback: Function): void {
@@ -125,9 +125,9 @@ export default class Tabs extends SandboxEventDispatcher {
                 case this.ACTIONS.ON_ACTIVATED_TABS:
                     this.onActivatedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;
-                case this.ACTIONS.ON_ACTIVE_CHANGED_TABS:
-                    this.onActiveChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
-                    break;
+                // case this.ACTIONS.ON_ACTIVE_CHANGED_TABS:
+                //     this.onActiveChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
+                //     break;
                 case this.ACTIONS.ON_ATTACHED_TABS:
                     this.onAttachedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;
@@ -137,9 +137,9 @@ export default class Tabs extends SandboxEventDispatcher {
                 case this.ACTIONS.ON_DETACHED_TABS:
                     this.onDetachedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;
-                case this.ACTIONS.ON_HIGHLIGHT_CHANGED_TABS:
-                    this.onHighlightChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
-                    break;
+                // case this.ACTIONS.ON_HIGHLIGHT_CHANGED_TABS:
+                //     this.onHighlightChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
+                //     break;
                 case this.ACTIONS.ON_HIGHLIGHTED_TABS:
                     this.onHighlightedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;
@@ -152,9 +152,9 @@ export default class Tabs extends SandboxEventDispatcher {
                 case this.ACTIONS.ON_REPLACED_TABS:
                     this.onReplacedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;
-                case this.ACTIONS.ON_SELECTION_CHANGED_TABS:
-                    this.onSelectionChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
-                    break;
+                // case this.ACTIONS.ON_SELECTION_CHANGED_TABS:
+                //     this.onSelectionChangedCallbacks.forEach(callback => callback(sandboxEvent.data));
+                //     break;
                 case this.ACTIONS.ON_UPDATED_TABS:
                     this.onUpdatedCallbacks.forEach(callback => callback(sandboxEvent.data));
                     break;

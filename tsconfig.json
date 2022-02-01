@@ -20,6 +20,10 @@
       "lib": ["ESNext", "dom"],
       "types": ["chrome"]
     },
+    // "typedocOptions": {
+    //   "entryPoints": ["src/api/api.ts"],
+    //   "out": "docs"
+    // },
     "exclude": ["__tests__/**/*"],
     "include": ["src/**/*"],
     "files": ["src/index.ts"]

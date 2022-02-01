@@ -8,16 +8,12 @@ export default class Tabs extends SandboxEventDispatcher {
     query(): Promise<chrome.tabs.Tab[]>;
     private onActivatedCallbacks;
     onActivated(callback: Function): void;
-    private onActiveChangedCallbacks;
-    onActiveChanged(callback: Function): void;
     private onAttachedCallbacks;
     onAttached(callback: Function): void;
     private onCreatedCallbacks;
     onCreated(callback: Function): void;
     private onDetachedCallbacks;
     onDetached(callback: Function): void;
-    private onHighlightChangedCallbacks;
-    onHighlightChanged(callback: Function): void;
     private onHighlightedCallbacks;
     onHighlighted(callback: Function): void;
     private onMovedCallbacks;
@@ -26,8 +22,6 @@ export default class Tabs extends SandboxEventDispatcher {
     onRemoved(callback: Function): void;
     private onReplacedCallbacks;
     onReplaced(callback: Function): void;
-    private onSelectionChangedCallbacks;
-    onSelectionChanged(callback: Function): void;
     private onUpdatedCallbacks;
     onUpdated(callback: Function): void;
     private onZoomChangeCallbacks;
