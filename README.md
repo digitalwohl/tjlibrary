@@ -10,7 +10,7 @@ Library comes packaged three different ways depending on how it is imported:
 
 To call native methods or register callbacks on this library the [TJ.sandbox.general.ready()](https://digitalwohl.github.io/tjlibrary/docs/classes/General.html#ready) must be called before calling any methods or registering any callbacks.
 
-The methods currently supported are documented for [tabs](https://digitalwohl.github.io/tjlibrary/docs/classes/Tabs.html) and [windows](https://digitalwohl.github.io/tjlibrary/docs/classes/Chrome.html#windows).
+The methods currently supported are documented for [tabs](https://digitalwohl.github.io/tjlibrary/docs/classes/Tabs.html) and [windows](https://digitalwohl.github.io/tjlibrary/docs/classes/Windows.html).
 
 
 Example using the esm distribution:
