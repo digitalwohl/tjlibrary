@@ -3,9 +3,6 @@ import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 import SandboxEventPromise from "../../../model/sandbox-event-promise";
 import Api from "../../api";
 
-/**
- *  @internal
- */
 export default class General extends SandboxEventDispatcher {
 
     private DOMAIN = 'sandbox';
@@ -25,6 +22,9 @@ export default class General extends SandboxEventDispatcher {
         return sandboxEventPromise.createPromise();
     }
 
+    /**
+     *  @internal
+     */
     public onEventFromSandbox(sandboxEvent: SandboxEvent): void {
         if (sandboxEvent.domain === this.DOMAIN) {
             switch (sandboxEvent.action) {

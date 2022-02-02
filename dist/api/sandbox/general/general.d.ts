@@ -1,1 +1,7 @@
-export {};
+import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
+export default class General extends SandboxEventDispatcher {
+    private DOMAIN;
+    private ACTIONS;
+    private pendingRequests;
+    ready(): Promise<boolean>;
+}
