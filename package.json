@@ -31,15 +31,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:watch": "microbundle watch",
-    "build": "microbundle --external none"
+    "build": "microbundle --external none",
+    "build-docs": "typedoc --excludeInternal --excludePrivate --entryPointStrategy expand src/"
   },
   "author": "Dinu Sebastian Liviu",
   "license": "ISC",
   "devDependencies": {
     "microbundle": "^0.14.2",
     "typedoc": "^0.22.11",
-    "typedoc-plugin-markdown": "^3.11.12",
-    "typedoc-plugin-missing-exports": "0.22.6"
+    "typedoc-plugin-merge-modules": "^3.1.0",
+    "typedoc-plugin-missing-exports": "0.22.6",
+    "typedoc-plugin-rename-defaults": "^0.4.0"
   },
   "dependencies": {
     "nanoid": "^3.2.0",

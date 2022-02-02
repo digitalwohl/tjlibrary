@@ -1,6 +1,7 @@
 import { customAlphabet } from 'nanoid';
 
 /**
+ * @internal
  *  Event that is sent across the sandbox event bus,
  *  it can be exchanged with the sandbox page
  * 

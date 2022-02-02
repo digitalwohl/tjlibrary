@@ -2,7 +2,7 @@ import SandboxEvent from "../../../model/sandbox-event";
 import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 import SandboxEventPromise from "../../../model/sandbox-event-promise";
 
-export default class Windows extends SandboxEventDispatcher{
+export default class Windows extends SandboxEventDispatcher {
 
     private DOMAIN = 'extension';
     private ACTIONS = {
@@ -14,6 +14,11 @@ export default class Windows extends SandboxEventDispatcher{
     }
 
     private pendingRequests: SandboxEventPromise[] = [];
+
+    /**
+     *  @internal
+     */
+    constructor() { super() }
 
     public getAll(): Promise<chrome.windows.Window[]> {
         const sandboxEvent = new SandboxEvent(this.DOMAIN, this.ACTIONS.GET_ALL_WINDOWS);
@@ -55,6 +60,9 @@ export default class Windows extends SandboxEventDispatcher{
         this.onRemovedCallbacks.push(callback);
     }
 
+    /**
+     *  @internal
+     */
     public onEventFromSandbox(sandboxEvent: SandboxEvent): void {
         if (sandboxEvent.domain === this.DOMAIN) {
             switch (sandboxEvent.action) {
@@ -83,5 +91,5 @@ export default class Windows extends SandboxEventDispatcher{
             }
         }
     }
-    
+
 }

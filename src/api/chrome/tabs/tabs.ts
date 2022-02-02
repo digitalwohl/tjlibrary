@@ -22,6 +22,11 @@ export default class Tabs extends SandboxEventDispatcher {
         ON_ZOOM_CHANGE_TABS: 'onZoomChangeTabs'
     }
 
+    /**
+     *  @internal
+     */
+    constructor() { super() }
+
     private pendingRequests: SandboxEventPromise[] = [];
 
     public query(): Promise<chrome.tabs.Tab[]> {
@@ -110,7 +115,9 @@ export default class Tabs extends SandboxEventDispatcher {
         this.onZoomChangeCallbacks.push(callback);
     }
 
-
+    /**
+     *  @internal
+     */
     public onEventFromSandbox(sandboxEvent: SandboxEvent): void {
         if (sandboxEvent.domain === this.DOMAIN) {
             switch (sandboxEvent.action) {

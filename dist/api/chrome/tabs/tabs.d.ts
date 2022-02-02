@@ -1,5 +1,4 @@
 /// <reference types="chrome" />
-import SandboxEvent from "../../../model/sandbox-event";
 import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 export default class Tabs extends SandboxEventDispatcher {
     private DOMAIN;
@@ -26,5 +25,4 @@ export default class Tabs extends SandboxEventDispatcher {
     onUpdated(callback: Function): void;
     private onZoomChangeCallbacks;
     onZoomChange(callback: Function): void;
-    onEventFromSandbox(sandboxEvent: SandboxEvent): void;
 }

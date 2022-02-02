@@ -1,3 +1,3 @@
-import Api from "./api/api";
+// import Api from "./api/api";
 
-export const TJ = Api;
+export * as TJ from "./api/api";

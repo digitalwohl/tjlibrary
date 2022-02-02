@@ -21,7 +21,7 @@
       "types": ["chrome"]
     },
     "typedocOptions": {
-      "entryPoints": ["src/index.ts"],
+      "entryPoints": ["src/api/api.ts"],
       "out": "docs"
     },
     "exclude": ["__tests__/**/*"],

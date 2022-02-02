@@ -1,16 +1,19 @@
 import SandboxEvent from "./sandbox-event";
 
+/**
+ *  @internal
+ */
 export default class SandboxEventPromise {
     private resolve: (value: any) => void;
     private reject: (reason?: any) => void;
     public sandboxEvent: SandboxEvent;
-    
+
     constructor(sandboxEvent: SandboxEvent) {
         this.sandboxEvent = sandboxEvent;
     }
 
     public createPromise(): Promise<any> {
-        return new Promise( (resolve, reject) => {
+        return new Promise((resolve, reject) => {
             this.resolve = resolve;
             this.reject = reject;
         });
@@ -20,7 +23,7 @@ export default class SandboxEventPromise {
         this.resolve(data);
     }
 
-    public rejectPromise(reason: string) :void {
+    public rejectPromise(reason: string): void {
         this.reject(reason);
     }
 }

@@ -1,5 +1,4 @@
 /// <reference types="chrome" />
-import SandboxEvent from "../../../model/sandbox-event";
 import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 export default class Windows extends SandboxEventDispatcher {
     private DOMAIN;
@@ -14,5 +13,4 @@ export default class Windows extends SandboxEventDispatcher {
     onFocusChanged(callback: Function): void;
     private onRemovedCallbacks;
     onRemoved(callback: Function): void;
-    onEventFromSandbox(sandboxEvent: SandboxEvent): void;
 }
