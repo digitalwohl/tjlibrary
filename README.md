@@ -16,8 +16,7 @@ The methods currently supported are documented for [tabs](https://digitalwohl.gi
 Example using the esm distribution:
 
 ```javascript
- <script type="module">
-    import { TJ } from 'https://sebastiandinu.github.io/crispy-spoon/dist/tj-comm.module.js';
+    import { TJ } from 'https://digitalwohl.github.io/tjlibrary/tj-comm.module.js';
 
     // function that calls the native chrome.windows.getAll
     async function getAllWindows() {
@@ -42,6 +41,4 @@ Example using the esm distribution:
     // on windowReady event calls the ready method that sandboxes the 
     // page and prevents anything else than sandbox events to send or receive
     window.ready= ready;
-
-  </script>
 ```
