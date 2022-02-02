@@ -16,7 +16,7 @@ The methods currently supported are documented for [tabs](https://digitalwohl.gi
 Example using the esm distribution:
 
 ```javascript
-    import { TJ } from 'https://digitalwohl.github.io/tjlibrary/tj-comm.module.js';
+    import { TJ } from 'https://digitalwohl.github.io/tjlibrary/dist/tj-comm.module.js';
 
     // function that calls the native chrome.windows.getAll
     async function getAllWindows() {
