@@ -5,7 +5,7 @@ import SandboxEventPromise from "../../../model/sandbox-event-promise";
 export default class Windows extends SandboxEventDispatcher {
 
     private CHROME = {
-        domainName: 'CHROME',
+        domainName: 'chrome',
         WINDOWS: {
             apiName: 'windows',
             GET_ALL: {

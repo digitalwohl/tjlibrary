@@ -5,7 +5,7 @@ import SandboxEventPromise from "../../../model/sandbox-event-promise";
 export default class Tabs extends SandboxEventDispatcher {
 
     private CHROME = {
-        domainName: 'CHROME',
+        domainName: 'chrome',
         TABS: {
             apiName: 'tabs',
             QUERY: {

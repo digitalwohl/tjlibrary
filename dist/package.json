@@ -1,6 +1,6 @@
 {
   "name": "tj_comm",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "",
   "main": "./tj-comm.js",
   "browser": "./tj-comm.umd.js",
