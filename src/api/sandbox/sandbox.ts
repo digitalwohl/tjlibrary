@@ -1,9 +1,9 @@
 import SandboxEvent from "../../model/sandbox-event";
-import General from "./general/general";
+import Page from "./page/page";
 
 export default class Sandbox {
 
-    public general = new General();
+    public page = new Page();
 
     /**
      *  @internal
@@ -14,6 +14,6 @@ export default class Sandbox {
      *  @internal
      */
     onEventFromSandbox(sandboxEvent: SandboxEvent): void {
-        this.general.onEventFromSandbox(sandboxEvent);
+        this.page.onEventFromSandbox(sandboxEvent);
     }
 }

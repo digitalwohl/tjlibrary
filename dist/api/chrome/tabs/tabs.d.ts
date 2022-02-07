@@ -1,8 +1,7 @@
 /// <reference types="chrome" />
 import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 export default class Tabs extends SandboxEventDispatcher {
-    private DOMAIN;
-    private ACTIONS;
+    private CHROME;
     private pendingRequests;
     query(): Promise<chrome.tabs.Tab[]>;
     private onActivatedCallbacks;

@@ -3,18 +3,25 @@ import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 import SandboxEventPromise from "../../../model/sandbox-event-promise";
 import Api from "../../api";
 
-export default class General extends SandboxEventDispatcher {
+export default class Page extends SandboxEventDispatcher {
 
-    private DOMAIN = 'sandbox';
-    private ACTIONS = {
-        JAIL_PAGE: 'jailPage',
-        READY: 'isReady'
+    private SANDBOX = {
+        domainName: 'sandbox',
+        PAGE: {
+            apiName: 'page',
+            JAIL: {
+                methodName: 'jail'
+            },
+            READY: {
+                methodName: 'ready'
+            }
+        }
     }
 
     private pendingRequests: SandboxEventPromise[] = [];
 
     public ready(): Promise<boolean> {
-        const sandboxEvent = new SandboxEvent(this.DOMAIN, this.ACTIONS.JAIL_PAGE);
+        const sandboxEvent = new SandboxEvent(this.SANDBOX.domainName, this.SANDBOX.PAGE.apiName, this.SANDBOX.PAGE.JAIL.methodName);
         const sandboxEventPromise = new SandboxEventPromise(sandboxEvent);
         this.pendingRequests.push(sandboxEventPromise);
         this.sendSandboxEvent(sandboxEvent);
@@ -26,9 +33,9 @@ export default class General extends SandboxEventDispatcher {
      *  @internal
      */
     public onEventFromSandbox(sandboxEvent: SandboxEvent): void {
-        if (sandboxEvent.domain === this.DOMAIN) {
-            switch (sandboxEvent.action) {
-                case this.ACTIONS.READY:
+        if (sandboxEvent.domain === this.SANDBOX.domainName && sandboxEvent.api === this.SANDBOX.PAGE.apiName) {
+            switch (sandboxEvent.method) {
+                case this.SANDBOX.PAGE.READY.methodName:
                     const foundPromise = this.pendingRequests.find(request => request.sandboxEvent.id === sandboxEvent.id);
                     const fountPromiseIndex = this.pendingRequests.findIndex(request => request.sandboxEvent.id === sandboxEvent.id);
                     if (foundPromise) {

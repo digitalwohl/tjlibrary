@@ -1,0 +1,30 @@
+{
+  "name": "tj_comm",
+  "version": "0.0.12",
+  "description": "",
+  "main": "./tj-comm.js",
+  "browser": "./tj-comm.umd.js",
+  "umd:main": "./tj-comm.umd.js",
+  "jsnext:main": "./tj-comm.modern.js",
+  "module": "./tj-comm.module.js",
+  "source": "./src/index.ts",
+  "syntax": {
+    "esmodules": "./tj-comm.modern.js"
+  },
+  "types": "./index.d.ts",
+  "typings": "./index.d.ts",
+  "exports": {
+    ".": {
+      "browser": "./tj-comm.module.js",
+      "umd": "./tj-comm.umd.js",
+      "import": "./tj-comm.module.js",
+      "require": "./tj-comm.js"
+    }
+  },
+  "author": "Dinu Sebastian Liviu",
+  "license": "ISC",
+  "dependencies": {
+    "nanoid": "^3.2.0",
+    "@types/chrome": "0.0.177"
+  }
+}

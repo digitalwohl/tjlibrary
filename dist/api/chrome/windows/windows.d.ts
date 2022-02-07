@@ -1,16 +1,15 @@
 /// <reference types="chrome" />
 import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
 export default class Windows extends SandboxEventDispatcher {
-    private DOMAIN;
-    private ACTIONS;
+    private CHROME;
     private pendingRequests;
     getAll(): Promise<chrome.windows.Window[]>;
     private onBoundsChangedCallbacks;
-    onBoundsChanged(callback: Function): void;
+    onBoundsChanged(callback: (window: chrome.windows.Window) => void): void;
     private onCreatedCallbacks;
-    onCreated(callback: Function): void;
+    onCreated(callback: (window: chrome.windows.Window) => void): void;
     private onFocusChangedCallbacks;
-    onFocusChanged(callback: Function): void;
+    onFocusChanged(callback: (windowId: number) => void): void;
     private onRemovedCallbacks;
-    onRemoved(callback: Function): void;
+    onRemoved(callback: (windowId: number) => void): void;
 }

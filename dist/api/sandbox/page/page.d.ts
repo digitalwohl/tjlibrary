@@ -1,5 +1,5 @@
 import SandboxEventDispatcher from "../../../model/sandbox-event-dispatcher";
-export default class General extends SandboxEventDispatcher {
+export default class Page extends SandboxEventDispatcher {
     private SANDBOX;
     private pendingRequests;
     ready(): Promise<boolean>;

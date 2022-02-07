@@ -1,4 +1,4 @@
-import General from "./general/general";
+import Page from "./page/page";
 export default class Sandbox {
-    general: General;
+    page: Page;
 }

@@ -1,7 +1,7 @@
 import { customAlphabet } from 'nanoid';
 
 /**
- * @internal
+ * 
  *  Event that is sent across the sandbox event bus,
  *  it can be exchanged with the sandbox page
  * 
@@ -12,24 +12,29 @@ export default class SandboxEvent {
 
     id: string;
     domain: string;
-    action: string;
+    api: string;
+    method: string;
     data: object;
 
     /**
+     * @internal
      * Creates an instance of SandboxEvent.
      * @param {string} domain
-     * @param {string} action
+     * @param {string} api
+     * @param {string} method
      * @param {object} data
      * @memberof SandboxEvent
      */
-    constructor(domain: string, action: string, data?: object) {
+    constructor(domain: string, api: string, method: string,  data?: object) {
         this.domain = domain;
-        this.action = action;
+        this.api = api;
+        this.method = method;
         this.data = data;
         this.id = this.generateId();
     }
 
     /**
+     * @internal
      * Generates a random event id,
      * used to track events when exchanged with the sandbox
      *

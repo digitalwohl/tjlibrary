@@ -1,31 +1,34 @@
 import SandboxEvent from "./sandbox-event";
 
-/**
- *  @internal
- */
+
 export default class SandboxEventDispatcher {
     private PARENT_TARGET_ORIGIN = 'https://localhost/tabjail/sandbox';
     private REGISTER_SUBSCRIPTION_DOMAIN = 'sandbox';
-    private REGISTER_SUBSCRIPTION_ACTION = 'registerSubscription';
-
-    constructor() {}
+    private REGISTER_SUBSCRIPTION_API = 'page';
+    private REGISTER_SUBSCRIPTION_METHOD = 'registerSubscription';
 
     /**
      *  @internal
      */
-    public sendSandboxEvent(sandboxEvent: SandboxEvent) {
+    constructor() { }
+
+    /**
+     *  @internal
+     */
+    protected sendSandboxEvent(sandboxEvent: SandboxEvent) {
         window.parent.postMessage(sandboxEvent, this.PARENT_TARGET_ORIGIN);
     }
 
     /**
      *  @internal
      */
-    public registerSubscription(domain: string, action: string) {
+    protected registerSubscription(domain: string, api: string, method: string) {
         let data = {
             domain: domain,
-            action: action
+            api: api,
+            method: method
         }
-        const sandboxEvent = new SandboxEvent(this.REGISTER_SUBSCRIPTION_DOMAIN, this.REGISTER_SUBSCRIPTION_ACTION, data);
+        const sandboxEvent = new SandboxEvent(this.REGISTER_SUBSCRIPTION_DOMAIN, this.REGISTER_SUBSCRIPTION_API, this.REGISTER_SUBSCRIPTION_METHOD, data);
         this.sendSandboxEvent(sandboxEvent);
     }
 }
